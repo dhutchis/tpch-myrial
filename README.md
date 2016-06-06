@@ -41,7 +41,8 @@ Run `$RACO_HOME/scripts/myrial -h` for documentation about the different kinds o
 For example, in order to view the optimized logical plan immediately, run
 
 ```bash
-$RACO_HOME/scripts/myrial -d q1.myl | xdot
+$RACO_HOME/scripts/myrial -d q1.myl | xdot   # views the plan interactively
+$RACO_HOME/scripts/myrial -d q1.myl | dot -Tpdf -o q1.pdf  # save to a file
 ```
 
 
