@@ -4,10 +4,21 @@ This is an implementation of TPC-H in the [MyriaL language](http://myria.cs.wash
 
 ## Setup
 
-`tpch-myrial` requires TPC-H qgen to generate SQL queries and [Raco](https://github.com/uwescience/raco) to generate the query plans.
+`tpch-myrial` requires TPC-H's `qgen` program to generate SQL queries and [Raco](https://github.com/uwescience/raco) to generate the query plans.
 
-- [Download qgen](http://www.tpc.org/tpch/tools_download/dbgen-download-request.asp)
+### Install RACO
+
 - Install Raco by following its README.md and then make sure to set `RACO_HOME` to the directory of your Raco
+
+### Install qgen
+
+qgen is a tool provided by the TPC.
+
+- [Download the TPC-H Tools](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp).
+- Extract them somewhere.
+- Edit `makefile.suite` in the tools in the `dbgen` folder and rename it to `makefile`. Follow the instructions in the file.
+- Run `make`.
+- Inside this repo, create a symbolic link to (or copy) `qcgen` and `dists.dss`.
 
 ## Generate the queries
 
@@ -15,8 +26,10 @@ The queries are expressed as TPC-H `qgen` template files. The following command 
 using the test parameters from the TPC-H specification.
 
 ```bash
-python gen_validation.py
+python gen_validation.py --tpch <DIRECTORY_OF_TPCH_TOOLS>
 ```
+
+Note that it is normal for query 13, 20, 21, and 22 to fail because these are not included in this repo.
 
 ## See the plan of a query
 

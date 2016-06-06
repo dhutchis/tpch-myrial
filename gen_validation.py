@@ -6,7 +6,7 @@ import os
 import argparse
 
 # TPC-H qgen generates a query from a query template
-_qgen = './qgen'
+_qgen = 'qgen'
 
 if __name__ == '__main__':
     env = os.environ.copy()
