@@ -38,6 +38,12 @@ $RACO_HOME/scripts/myrial [flag] q1.myl
 ```
 
 Run `$RACO_HOME/scripts/myrial -h` for documentation about the different kinds of output.
+For example, in order to view the optimized logical plan immediately, run
+
+```bash
+$RACO_HOME/scripts/myrial -d q1.myl | xdot
+```
+
 
 
 ## Compile the queries to Grappa (Radish) programs
